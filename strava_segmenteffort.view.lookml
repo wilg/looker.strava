@@ -26,10 +26,24 @@
     type: number
     sql: ${TABLE}.average_watts
 
-  - dimension: distance
+  - dimension: distance_meters
     type: number
     sql: ${TABLE}.distance
+    drill_fields: detail*
+    value_format: '#,### "m"'
+  
+  - dimension: distance_km
+    type: number
+    sql: Floor(${TABLE}.distance / 1000)
+    drill_fields: detail*
+    value_format: '#,### "km"'
 
+  - dimension: distance_miles
+    type: number
+    sql: Floor(${TABLE}.distance /  1609)
+    drill_fields: detail*
+    value_format: '#,### "miles"'
+    
   - dimension: elapsed_time
     type: number
     sql: ${TABLE}.elapsed_time

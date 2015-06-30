@@ -10,10 +10,6 @@
     type: int
     sql: ${TABLE}.activity_id
 
-  - dimension: activity_lap_id
-    type: int
-    sql: ${TABLE}.ActivityLap_id
-
   - dimension: athlete_id
     type: int
     sql: ${TABLE}.athlete_id

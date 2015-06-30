@@ -4,15 +4,13 @@
   - dimension: id
     primary_key: true
     type: int
+    html: |
+      <a href="https://www.strava.com/activities/{{ row['strava_activity.id'] }}"  target="_blank">{{ value }}</a>
     sql: ${TABLE}.id
 
   - dimension: achievement_count
     type: number
     sql: ${TABLE}.achievement_count
-
-  - dimension: activity_id
-    type: int
-    sql: ${TABLE}.Activity_id
 
   - dimension: athlete_count
     type: number
@@ -65,9 +63,32 @@
     type: yesno
     sql: ${TABLE}.device_watts
 
-  - dimension: distance
+  - dimension: distance_meters
     type: number
     sql: ${TABLE}.distance
+    drill_fields: detail*
+    value_format: '#,### "m"'
+  
+  - dimension: distance_km
+    type: number
+    sql: Floor(${TABLE}.distance / 1000)
+    drill_fields: detail*
+    value_format: '#,### "km"'
+
+  - dimension: distance_miles
+    type: number
+    sql: Floor(${TABLE}.distance /  1609)
+    drill_fields: detail*
+    value_format: '#,### "miles"'
+    #html: |
+    #  <a href="{{link}}">{{ rendered_value }} miles</a>
+
+  - dimension: distance_tier
+    type: tier
+    style: integer
+    sql: ${distance_miles}
+    tiers: [0,10,20,30,40,50,60,70,80,90,100,110,120]
+    drill_fields: detail*
 
   - dimension: elapsed_time
     type: number
@@ -132,6 +153,8 @@
 
   - dimension: name
     sql: ${TABLE}.name
+    html: |
+      <a href="https://www.strava.com/activities/{{ row['strava_activity.id'] }}"  target="_blank">{{ value }}</a>
 
   - dimension: photo_count
     type: number
@@ -171,9 +194,16 @@
     type: number
     sql: ${TABLE}.start_longitude
 
-  - dimension: total_elevation_gain
+  - dimension: elevation_gain_meter
     type: number
     sql: ${TABLE}.total_elevation_gain
+    value_format: '#,### m'
+    
+  - dimension: elevation_gain_feet
+    type: number
+    sql: ${TABLE}.total_elevation_gain * 3.28084
+    value_format: "#,### ft"
+
 
   - dimension: trainer
     type: yesno
@@ -198,5 +228,26 @@
 
   - measure: count
     type: count
-    drill_fields: [id, name]
+    drill_fields: detail*
+  
+  - measure: total_distance
+    type: sum
+    sql: ${distance_miles}
+    drill_fields: detail*
+
+  - measure: total_elevation_gain
+    type: sum
+    sql: ${elevation_gain_feet}
+    drill_fields: detail*
+    
+
+
+ 
+  sets:
+    detail:
+    - id
+    - name
+    - distance_miles
+    - total_elevation_gain
+    
 

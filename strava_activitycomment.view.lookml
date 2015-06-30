@@ -6,10 +6,6 @@
     type: int
     sql: ${TABLE}.id
 
-  - dimension: activity_comment_id
-    type: int
-    sql: ${TABLE}.ActivityComment_id
-
   - dimension: activity_id
     type: int
     sql: ${TABLE}.activity_id

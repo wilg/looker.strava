@@ -6,10 +6,6 @@
     type: int
     sql: ${TABLE}.id
 
-  - dimension: activity_kudos_id
-    type: int
-    sql: ${TABLE}.ActivityKudos_id
-
   - dimension: approve_followers
     type: yesno
     sql: ${TABLE}.approve_followers

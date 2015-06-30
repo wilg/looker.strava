@@ -32,10 +32,24 @@
     timeframes: [time, date, week, month]
     sql: ${TABLE}.created_at
 
-  - dimension: distance
+  - dimension: distance_meters
     type: number
     sql: ${TABLE}.distance
+    drill_fields: detail*
+    value_format: '#,### "m"'
+  
+  - dimension: distance_km
+    type: number
+    sql: Floor(${TABLE}.distance / 1000)
+    drill_fields: detail*
+    value_format: '#,### "km"'
 
+  - dimension: distance_miles
+    type: number
+    sql: Floor(${TABLE}.distance /  1609)
+    drill_fields: detail*
+    value_format: '#,### "miles"'
+    
   - dimension: effort_count
     type: number
     sql: ${TABLE}.effort_count
@@ -78,10 +92,6 @@
   - dimension: resource_state
     type: number
     sql: ${TABLE}.resource_state
-
-  - dimension: segment_id
-    type: int
-    sql: ${TABLE}.Segment_id
 
   - dimension: star_count
     type: number
