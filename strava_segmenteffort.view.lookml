@@ -25,7 +25,7 @@
   - dimension: average_watts
     type: number
     sql: ${TABLE}.average_watts
-    
+
   - dimension: elapsed_time
     type: number
     sql: ${TABLE}.elapsed_time
@@ -52,6 +52,9 @@
 
   - dimension: name
     sql: ${TABLE}.name
+    html: |
+      <a href="/explore/{{_model._name}}/strava_segmenteffort?f[strava_segment.id]={{row['strava_segmenteffort.segment_id']}}&fields=strava_segmenteffort.elapsed_time,strava_segmenteffort.start_date,strava_activity.name&sorts=strava_segmenteffort.elasped_time&title={{ rendered_value | encode_uri}}">{{rendered_value}}</a>
+    required_fields: [segment_id]
 
   - dimension: pr_rank
     type: number
@@ -86,4 +89,3 @@
   - measure: count
     type: count
     drill_fields: [id, name]
-

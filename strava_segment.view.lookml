@@ -31,7 +31,7 @@
     type: time
     timeframes: [time, date, week, month]
     sql: ${TABLE}.created_at
-    
+
   - dimension: effort_count
     type: number
     sql: ${TABLE}.effort_count
@@ -66,6 +66,9 @@
 
   - dimension: name
     sql: ${TABLE}.name
+    html: |
+      <a href="/explore/{{_model._name}}/strava_segmenteffort?f[strava_segment.id]={{row['strava_segment.id']}}&fields=strava_segmenteffort.elapsed_time,strava_segmenteffort.start_date,strava_activity.name&sorts=strava_segmenteffort.elapsed_time&title={{ rendered_value | encode_uri}}">{{rendered_value}}</a>
+    required_fields: [id]
 
   - dimension: private
     type: yesno
@@ -106,4 +109,3 @@
   - measure: count
     type: count
     drill_fields: [id, name]
-

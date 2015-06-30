@@ -87,6 +87,7 @@
     sql: ${TABLE}.facebook_sharing_enabled
 
   - dimension: firstname
+    hidden: true
     sql: ${TABLE}.firstname
 
   - dimension: follower
@@ -118,7 +119,11 @@
     sql: ${TABLE}.instagram_username
 
   - dimension: lastname
+    hidden: true
     sql: ${TABLE}.lastname
+
+  - dimension: name
+    sql: CONCAT(${firstname}, " ", ${lastname})
 
   - dimension: max_heartrate
     type: number
@@ -224,4 +229,3 @@
   - measure: count
     type: count
     drill_fields: [id, firstname, instagram_username, lastname, username]
-
