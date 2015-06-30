@@ -4,6 +4,7 @@
 - include: "*.dashboard.lookml"  # include all the dashboards
 
 - explore: strava_activity
+  extends: ext_distance
   joins:
   - join: strava_athlete
     foreign_key: athlete_id
@@ -43,8 +44,11 @@
 - explore: strava_poweractivityzone
 
 - explore: strava_segment
+  extends: ext_distance
+
 
 - explore: strava_segmenteffort
+  extends: ext_distance
   joins:
   - join: strava_athlete
     foreign_key: athlete_id

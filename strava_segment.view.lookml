@@ -31,24 +31,6 @@
     type: time
     timeframes: [time, date, week, month]
     sql: ${TABLE}.created_at
-
-  - dimension: distance_meters
-    type: number
-    sql: ${TABLE}.distance
-    drill_fields: detail*
-    value_format: '#,### "m"'
-  
-  - dimension: distance_km
-    type: number
-    sql: Floor(${TABLE}.distance / 1000)
-    drill_fields: detail*
-    value_format: '#,### "km"'
-
-  - dimension: distance_miles
-    type: number
-    sql: Floor(${TABLE}.distance /  1609)
-    drill_fields: detail*
-    value_format: '#,### "miles"'
     
   - dimension: effort_count
     type: number
