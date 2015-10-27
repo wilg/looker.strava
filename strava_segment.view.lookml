@@ -67,7 +67,10 @@
   - dimension: name
     sql: ${TABLE}.name
     html: |
+      <a href="https://www.strava.com/segments/{{row['strava_segment.id']}}" target="_blank"><img width="24" height="24" src="https://www.strava.com/favicon.ico"></a>
       <a href="/explore/{{_model._name}}/strava_segmenteffort?f[strava_segment.id]={{row['strava_segment.id']}}&fields=strava_segmenteffort.elapsed_time,strava_segmenteffort.start_date,strava_activity.name&sorts=strava_segmenteffort.elapsed_time&title={{ rendered_value | encode_uri}}">{{rendered_value}}</a>
+      <a href="/dashboards/27?Segment={{row['strava_segment.id']}}" target="_blank"><img src="/images/qr-graph-line@2x.png" height=20 width=20></a>
+
     required_fields: [id]
 
   - dimension: private

@@ -62,9 +62,18 @@
     foreign_key: activity_id
   - join: strava_segment
     foreign_key: segment_id
+  - join: segment_facts
+    foreign_key: segment_id
 
 - explore: strava_segmentexplorerresult
   hidden: true
 
 - explore: strava_stream
   hidden: true
+  
+- explore: strava_activitystreamdatapoint
+  joins:
+  - join: strava_activitystream
+    sql_on: ${strava_activitystream.id} = ${strava_activitystreamdatapoint.activity_stream_id}
+    relationship: many_to_one
+  

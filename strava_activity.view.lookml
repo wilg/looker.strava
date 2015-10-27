@@ -9,6 +9,7 @@
     html: |
       <a href="https://www.strava.com/activities/{{row['strava_activity.id']}}" target="_blank"><img width="24" height="24" src="https://www.strava.com/favicon.ico"></a>
       <a href="/explore/{{_model._name}}/strava_segmenteffort?f[strava_activity.id]={{row['strava_activity.id']}}&fields=strava_segmenteffort.start_time,strava_segmenteffort.name&sorts=strava_segmenteffort.start_time">{{rendered_value}}</a>
+      <a href="/dashboards/25?Activity%20ID={{row['strava_activity.id']}}" target="_blank"><img src="/images/qr-graph-line@2x.png" height=20 width=20></a>
 
   - dimension: achievement_count
     type: number
@@ -141,10 +142,11 @@
 
   - dimension: name
     sql: ${TABLE}.name
+    required_fields: [id]
     html: |
       <a href="https://www.strava.com/activities/{{row['strava_activity.id']}}" target="_blank"><img width="24" height="24" src="https://www.strava.com/favicon.ico"></a>
       <a href="/explore/{{_model._name}}/strava_segmenteffort?f[strava_activity.id]={{row['strava_activity.id']}}&fields=strava_segmenteffort.start_time,strava_segmenteffort.name&sorts=strava_segmenteffort.start_time&title={{ rendered_value | encode_uri}}">{{rendered_value}}</a>
-    required_fields: [id]
+      <a href="/dashboards/25?Activity%20ID={{row['strava_activity.id']}}" target="_blank"><img src="/images/qr-graph-line@2x.png" height=20 width=20></a>
 
 
   - dimension: photo_count

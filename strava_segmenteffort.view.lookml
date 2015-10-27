@@ -89,3 +89,19 @@
   - measure: count
     type: count
     drill_fields: [id, name]
+
+  - measure: fastest_time
+    type: min
+    sql: ${elapsed_time}
+    html: |
+      {{rendered_value}}
+
+  - measure: got_a_pr
+    type: count
+    filters:
+      pr_rank: 2
+
+  - measure: pr_ratio
+    type: number
+    decimals: 2
+    sql: 100.0 * ${got_a_pr} / ${count}
