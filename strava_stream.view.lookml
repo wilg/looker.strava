@@ -3,7 +3,7 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: original_size
@@ -21,7 +21,7 @@
     sql: ${TABLE}.series_type
 
   - dimension: stream_id
-    type: int
+    type: number
     sql: ${TABLE}.Stream_id
 
   - dimension: type
@@ -30,4 +30,3 @@
   - measure: count
     type: count
     drill_fields: [id]
-

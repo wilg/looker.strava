@@ -3,15 +3,15 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: activity_id
-    type: int
+    type: number
     sql: ${TABLE}.activity_id
 
   - dimension: athlete_id
-    type: int
+    type: number
     sql: ${TABLE}.athlete_id
 
   - dimension: average_cadence
@@ -27,7 +27,7 @@
     sql: ${TABLE}.average_watts
 
   - dimension: base_effort_id
-    type: int
+    type: number
     sql: ${TABLE}.BaseEffort_id
 
   - dimension: distance
@@ -66,7 +66,7 @@
     sql: ${TABLE}.resource_state
 
   - dimension: segment_id
-    type: int
+    type: number
     sql: ${TABLE}.segment_id
 
   - dimension_group: start
@@ -86,4 +86,3 @@
   - measure: count
     type: count
     drill_fields: [id, name]
-

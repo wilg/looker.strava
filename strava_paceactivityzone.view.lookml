@@ -3,11 +3,11 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: pace_activity_zone_id
-    type: int
+    type: number
     sql: ${TABLE}.PaceActivityZone_id
 
   - dimension: resource_state
@@ -36,4 +36,3 @@
   - measure: count
     type: count
     drill_fields: [id]
-

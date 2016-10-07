@@ -3,7 +3,7 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: athlete_weight
@@ -15,7 +15,7 @@
     sql: ${TABLE}.bike_weight
 
   - dimension: power_activity_zone_id
-    type: int
+    type: number
     sql: ${TABLE}.PowerActivityZone_id
 
   - dimension: resource_state
@@ -32,4 +32,3 @@
   - measure: count
     type: count
     drill_fields: [id]
-

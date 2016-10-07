@@ -3,15 +3,15 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: activity_id
-    type: int
+    type: number
     sql: ${TABLE}.activity_id
 
   - dimension: activity_photo_id
-    type: int
+    type: number
     sql: ${TABLE}.ActivityPhoto_id
 
   - dimension: caption
@@ -43,4 +43,3 @@
   - measure: count
     type: count
     drill_fields: [id]
-

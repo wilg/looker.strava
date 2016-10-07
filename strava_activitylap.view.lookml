@@ -3,15 +3,15 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: activity_id
-    type: int
+    type: number
     sql: ${TABLE}.activity_id
 
   - dimension: athlete_id
-    type: int
+    type: number
     sql: ${TABLE}.athlete_id
 
   - dimension: average_cadence
@@ -90,4 +90,3 @@
   - measure: count
     type: count
     drill_fields: [id, name]
-

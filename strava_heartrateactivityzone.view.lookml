@@ -3,7 +3,7 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: custom_zones
@@ -11,7 +11,7 @@
     sql: ${TABLE}.custom_zones
 
   - dimension: heartrate_activity_zone_id
-    type: int
+    type: number
     sql: ${TABLE}.HeartrateActivityZone_id
 
   - dimension: max
@@ -40,4 +40,3 @@
   - measure: count
     type: count
     drill_fields: [id]
-

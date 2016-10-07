@@ -3,7 +3,7 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: activity_type
@@ -57,7 +57,7 @@
     sql: ${TABLE}.hazardous
 
   - dimension: map_id
-    type: int
+    type: number
     sql: ${TABLE}.map_id
 
   - dimension: maximum_grade

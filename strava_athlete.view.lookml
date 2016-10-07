@@ -3,18 +3,18 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: agreed_to_terms
     sql: ${TABLE}.agreed_to_terms
 
   - dimension: all_ride_totals_id
-    type: int
+    type: number
     sql: ${TABLE}.all_ride_totals_id
 
   - dimension: all_run_totals_id
-    type: int
+    type: number
     sql: ${TABLE}.all_run_totals_id
 
   - dimension: approve_followers
@@ -22,11 +22,11 @@
     sql: ${TABLE}.approve_followers
 
   - dimension: athlete_id
-    type: int
+    type: number
     sql: ${TABLE}.Athlete_id
 
   - dimension: badge_type_id
-    type: int
+    type: number
     sql: ${TABLE}.badge_type_id
 
   - dimension: biggest_climb_elevation_gain
@@ -41,7 +41,7 @@
     sql: ${TABLE}.city
 
   - dimension: club_id
-    type: int
+    type: number
     sql: ${TABLE}.club_id
 
   - dimension: country
@@ -177,11 +177,11 @@
     sql: ${TABLE}.receive_newsletter
 
   - dimension: recent_ride_totals_id
-    type: int
+    type: number
     sql: ${TABLE}.recent_ride_totals_id
 
   - dimension: recent_run_totals_id
-    type: int
+    type: number
     sql: ${TABLE}.recent_run_totals_id
 
   - dimension: resource_state
@@ -219,11 +219,11 @@
     sql: ${TABLE}.weight
 
   - dimension: ytd_ride_totals_id
-    type: int
+    type: number
     sql: ${TABLE}.ytd_ride_totals_id
 
   - dimension: ytd_run_totals_id
-    type: int
+    type: number
     sql: ${TABLE}.ytd_run_totals_id
 
   - measure: count

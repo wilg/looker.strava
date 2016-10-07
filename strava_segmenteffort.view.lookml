@@ -3,15 +3,15 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: activity_id
-    type: int
+    type: number
     sql: ${TABLE}.activity_id
 
   - dimension: athlete_id
-    type: int
+    type: number
     sql: ${TABLE}.athlete_id
 
   - dimension: average_cadence
@@ -65,11 +65,11 @@
     sql: ${TABLE}.resource_state
 
   - dimension: segment_effort_id
-    type: int
+    type: number
     sql: ${TABLE}.SegmentEffort_id
 
   - dimension: segment_id
-    type: int
+    type: number
     sql: ${TABLE}.segment_id
 
   - dimension_group: start
@@ -103,5 +103,5 @@
 
   - measure: pr_ratio
     type: number
-    decimals: 2
+    value_format_name: decimal_2
     sql: 100.0 * ${got_a_pr} / ${count}

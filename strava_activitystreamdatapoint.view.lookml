@@ -3,11 +3,11 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: activity_stream_id
-    type: int
+    type: number
     sql: ${TABLE}.activity_stream_id
 
   - dimension: altitude
@@ -38,7 +38,7 @@
     hidden: true
 
   - dimension: time
-    type: int
+    type: number
     sql: ${TABLE}.time
 
   - dimension: latlon

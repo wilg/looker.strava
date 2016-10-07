@@ -3,7 +3,7 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: avg_grade
@@ -33,10 +33,9 @@
     sql: ${TABLE}.resource_state
 
   - dimension: segment_explorer_result_id
-    type: int
+    type: number
     sql: ${TABLE}.SegmentExplorerResult_id
 
   - measure: count
     type: count
     drill_fields: [id, name]
-

@@ -4,7 +4,7 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
     html: |
       <a href="https://www.strava.com/activities/{{row['strava_activity.id']}}" target="_blank"><img width="24" height="24" src="https://www.strava.com/favicon.ico"></a>
@@ -20,7 +20,7 @@
     sql: ${TABLE}.athlete_count
 
   - dimension: athlete_id
-    type: int
+    type: number
     sql: ${TABLE}.athlete_id
 
   - dimension: average_cadence
@@ -48,7 +48,7 @@
     sql: ${TABLE}.average_watts
 
   - dimension: besteffort_id
-    type: int
+    type: number
     sql: ${TABLE}.besteffort_id
 
   - dimension: calories
@@ -124,7 +124,7 @@
 
   - dimension: map_id
     hidden: true
-    type: int
+    type: number
     sql: ${TABLE}.map_id
 
   - dimension: max_heartrate
@@ -156,7 +156,7 @@
 
   - dimension: photos_id
     hidden: true
-    type: int
+    type: number
     sql: ${TABLE}.photos_id
 
   - dimension: private
@@ -170,7 +170,7 @@
 
   - dimension: segmenteffort_id
     hidden: true
-    type: int
+    type: number
     sql: ${TABLE}.segmenteffort_id
 
   - dimension_group: start

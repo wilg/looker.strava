@@ -3,11 +3,11 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: loadable_entity_id
-    type: int
+    type: number
     sql: ${TABLE}.LoadableEntity_id
 
   - dimension: resource_state
@@ -17,4 +17,3 @@
   - measure: count
     type: count
     drill_fields: [id]
-

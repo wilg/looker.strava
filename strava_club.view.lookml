@@ -3,11 +3,11 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: club_id
-    type: int
+    type: number
     sql: ${TABLE}.Club_id
 
   - dimension: name
@@ -26,4 +26,3 @@
   - measure: count
     type: count
     drill_fields: [id, name]
-

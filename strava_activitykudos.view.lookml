@@ -3,7 +3,7 @@
 
   - dimension: id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.id
 
   - dimension: approve_followers
@@ -61,4 +61,3 @@
   - measure: count
     type: count
     drill_fields: [id, firstname, lastname]
-

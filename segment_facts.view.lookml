@@ -16,7 +16,7 @@
   fields:
   - dimension: strava_segment_id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.strava_segment_id
 
   - dimension: strava_segment_name
@@ -32,11 +32,11 @@
     sql: ${TABLE}.last_date
 
   - dimension: fastest_time
-    type: int
+    type: number
     sql: ${TABLE}.fastest_time
 
   - dimension: count
-    type: int
+    type: number
     sql: ${TABLE}.count
 
   sets:
@@ -47,4 +47,3 @@
       - last_date
       - fastest_time
       - count
-
