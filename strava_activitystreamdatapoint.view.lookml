@@ -1,4 +1,6 @@
 - view: strava_activitystreamdatapoint
+  view_label: GPS Point
+
   fields:
 
   - dimension: id
@@ -9,6 +11,14 @@
   - dimension: activity_stream_id
     type: number
     sql: ${TABLE}.activity_stream_id
+    
+  - dimension: redact
+    type: yesno
+    sql: |
+      
+      ACOS(SIN(RADIANS(36.984051)) * SIN(RADIANS(${TABLE}.latitude)) + COS(RADIANS(36.984051)) * COS(RADIANS(${TABLE}.latitude)) * 
+      COS(RADIANS(${TABLE}.longitude - -122.046654))) * 6371 > 0.2
+      
 
   - dimension: altitude
     type: number
@@ -42,6 +52,7 @@
     sql: ${TABLE}.time
 
   - dimension: latlon
+    label: Position
     type: location
     sql_latitude: ${latitude}
     sql_longitude: ${longitude}
@@ -55,7 +66,7 @@
     sql: ${altitude}
 
   - measure: velocity_smooth
+    label: Speed
     type: number
     sql: ${velocity_smooth_num}
-    html: |
-      {{rendered_value}} mph
+    value_format: "0.0 \"mph\""
