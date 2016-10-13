@@ -12,6 +12,7 @@
   - join: strava_segmenteffort
     foreign_key: segmenteffort_id
 
+- persist_for: 99999 hours
 
 - explore: strava_activitycomment
   hidden: true
