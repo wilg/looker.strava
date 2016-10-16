@@ -79,3 +79,8 @@
     type: number
     sql: ${velocity_smooth_num}
     value_format: "0.0 \"mph\""
+    
+  - measure: average_velocity
+    type: average
+    sql: ${velocity_smooth_num}
+    value_format: "0.0 \"mph\""

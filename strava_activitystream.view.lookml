@@ -18,6 +18,9 @@
     label: Name
     sql_case:
       Loop: ${activity_id} = 421035259
+      Woodside Ride: ${activity_id} = 419598298
+      Office to University: ${activity_id} = 418666699
+      Pogonip: ${activity_id} = 418355932
 
   - measure: count
     type: count
