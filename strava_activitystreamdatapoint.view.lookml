@@ -1,5 +1,5 @@
 - view: strava_activitystreamdatapoint
-  view_label: GPS Point
+  view_label: Point
 
   fields:
 
@@ -14,10 +14,11 @@
     
   - dimension: redact
     type: yesno
+    hidden: true
     sql: |
       
       ACOS(SIN(RADIANS(36.984051)) * SIN(RADIANS(${TABLE}.latitude)) + COS(RADIANS(36.984051)) * COS(RADIANS(${TABLE}.latitude)) * 
-      COS(RADIANS(${TABLE}.longitude - -122.046654))) * 6371 > 0.2
+      COS(RADIANS(${TABLE}.longitude - -122.046654))) * 6371 > 0.3
       
 
   - dimension: altitude
@@ -34,8 +35,16 @@
     hidden: true
 
   - dimension: grade_smooth
+    label: Grade
     type: number
+    value_format: "0.0\"%\""
     sql: ${TABLE}.grade_smooth
+    
+  - dimension: grade_tier
+    sql_case:
+      Downhill: ${grade_smooth} < -0.1
+      Uphill: ${grade_smooth} > 0.1
+      Flat: true
 
   - dimension: latitude
     type: number
@@ -52,7 +61,7 @@
     sql: ${TABLE}.time
 
   - dimension: latlon
-    label: Position
+    label: Coordinates
     type: location
     sql_latitude: ${latitude}
     sql_longitude: ${longitude}

@@ -73,6 +73,7 @@
   hidden: true
   
 - explore: strava_activitystreamdatapoint
+  label: Strava
   joins:
   - join: strava_activitystream
     sql_on: ${strava_activitystream.id} = ${strava_activitystreamdatapoint.activity_stream_id}
